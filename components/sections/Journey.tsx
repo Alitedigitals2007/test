@@ -56,6 +56,15 @@ const RECORD = [
   },
 ];
 
+const TIMELINE = RECORD.flatMap((group) =>
+  group.roles.map((role) => ({ period: group.period, role }))
+);
+
+const COLUMNS = [
+  TIMELINE.slice(0, Math.ceil(TIMELINE.length / 2)),
+  TIMELINE.slice(Math.ceil(TIMELINE.length / 2)),
+];
+
 const LESSONS = [
   ["Administration", "Documentation, correspondence, and coordination that keep commitments moving."],
   ["Student support", "Helping students navigate faculty life, from first year onward."],
@@ -73,27 +82,31 @@ export default function Journey() {
         intro="The roles I have held so far — and what each one taught me about leadership."
       />
 
-      <ol className="reveal divide-y divide-line border-y border-line">
-        {RECORD.map((group) => (
-          <li key={group.period} className="grid gap-2 py-4 sm:grid-cols-[10rem_1fr] sm:gap-6">
-            <p className="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-gold-deep sm:pt-0.5">
-              {group.period}
-            </p>
-            <p className="text-[0.95rem] leading-relaxed">
-              {group.roles.map((role, roleIndex) => (
-                <span key={role}>
-                  {roleIndex > 0 && (
-                    <span className="mx-2 text-gold-deep" aria-hidden="true">
-                      ·
-                    </span>
-                  )}
-                  {role}
-                </span>
-              ))}
-            </p>
-          </li>
+      <div className="grid gap-10 lg:grid-cols-2 lg:gap-x-16">
+        {COLUMNS.map((items, columnIndex) => (
+          <ol
+            key={columnIndex}
+            className="relative space-y-6 border-l border-line-strong pl-7"
+          >
+            {items.map((item, index) => (
+              <li
+                key={`${item.period}-${item.role}`}
+                className="reveal relative"
+                style={delay(columnIndex * 80 + index * 40)}
+              >
+                <span
+                  className="absolute -left-[2.13rem] top-1.5 h-2.5 w-2.5 rounded-full border border-gold-deep bg-gold"
+                  aria-hidden="true"
+                />
+                <p className="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-gold-deep">
+                  {item.period}
+                </p>
+                <p className="mt-1 text-[0.98rem] leading-relaxed">{item.role}</p>
+              </li>
+            ))}
+          </ol>
         ))}
-      </ol>
+      </div>
 
       <div className="reveal mt-14" style={delay(120)}>
         <p className="eyebrow mb-6">What the journey taught me</p>

@@ -1,13 +1,6 @@
 import Image from "next/image";
 import OrbitCanvas from "@/components/OrbitCanvas";
 
-const EQUATION = [
-  { symbol: "S", label: "Service" },
-  { symbol: "W", label: "Welfare" },
-  { symbol: "I", label: "Infrastructure" },
-  { symbol: "E", label: "Empowerment" },
-];
-
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
@@ -51,23 +44,13 @@ export default function Hero() {
 
           <div className="hero-rise mt-12 border-t border-line pt-6" style={{ animationDelay: "0.6s" }}>
             <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted">
-              The equation of service
+              The Renaissance equation
             </p>
-            <p className="mt-3 font-display text-3xl tracking-tight sm:text-4xl">
-              S <span className="mx-1 text-gold-deep">=</span> W{" "}
-              <span className="mx-1 text-gold-deep">+</span> I{" "}
-              <span className="mx-1 text-gold-deep">+</span> E
+            <p className="mt-3 font-display text-2xl leading-snug tracking-tight sm:text-3xl">
+              Renaissance <span className="text-gold-deep">=</span> Welfare{" "}
+              <span className="text-gold-deep">+</span> Infrastructure{" "}
+              <span className="text-gold-deep">+</span> Empowerment
             </p>
-            <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
-              {EQUATION.map((item) => (
-                <li
-                  key={item.symbol}
-                  className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-muted"
-                >
-                  <span className="text-gold-deep">{item.symbol}</span> — {item.label}
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
 
