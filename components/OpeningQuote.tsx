@@ -1,7 +1,6 @@
 export default function OpeningQuote() {
   return (
     <section
-      id="top"
       aria-label="The belief behind this movement"
       className="relative bg-brand text-brand-fg"
     >

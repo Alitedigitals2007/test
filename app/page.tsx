@@ -18,9 +18,9 @@ export default async function Home() {
   return (
     <>
       <RevealWatcher />
-      <OpeningQuote />
       <Header />
       <main id="main">
+        <OpeningQuote />
         <Hero />
         <Meet />
         <Journey />

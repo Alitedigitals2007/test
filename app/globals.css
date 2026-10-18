@@ -75,6 +75,12 @@ html {
   text-size-adjust: 100%;
 }
 
+section[id],
+main[id],
+header[id] {
+  scroll-margin-top: 5.5rem;
+}
+
 body {
   background: var(--bg);
   color: var(--fg);

@@ -31,6 +31,7 @@ export default function Header() {
 
   return (
     <header
+      id="top"
       className={`sticky top-0 z-50 border-b transition-all duration-500 ${
         scrolled
           ? "border-line bg-bg/85 backdrop-blur-xl"
