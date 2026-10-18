@@ -49,7 +49,7 @@ export default function FeedbackForm() {
 
   if (status === "success") {
     return (
-      <div className="card grain relative overflow-hidden p-8 text-center sm:p-10" role="status">
+      <div className="card relative overflow-hidden p-8 text-center sm:p-10" role="status">
         <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-gold text-brand">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" aria-hidden="true">
             <path d="M4.5 12.5l5 5L19.5 7" strokeLinecap="round" strokeLinejoin="round" />
@@ -73,7 +73,7 @@ export default function FeedbackForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="card grain relative overflow-hidden p-6 sm:p-8" noValidate>
+    <form onSubmit={onSubmit} className="card relative overflow-hidden p-6 sm:p-8" noValidate>
       <div className="mb-6 flex items-center gap-3">
         <span className="eyebrow">Private submission</span>
         <span className="h-px flex-1 bg-line" aria-hidden="true" />
@@ -137,7 +137,7 @@ export default function FeedbackForm() {
         </div>
 
         {status === "error" && (
-          <p className="rounded-xl border border-danger/40 bg-danger/5 px-4 py-3 text-sm text-danger" role="alert">
+          <p className="rounded border border-danger/40 bg-danger/5 px-4 py-3 text-sm text-danger" role="alert">
             {error}
           </p>
         )}

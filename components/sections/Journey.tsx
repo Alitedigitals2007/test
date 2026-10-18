@@ -1,53 +1,66 @@
 import { delay, Section, SectionHead } from "@/components/Section";
 
-const TIMELINE = [
-  { year: "2022", role: "Participant, Queen's Commonwealth Essay Competition (QCEC)." },
-  { year: "2024", role: "Participant, Climate Science Olympiad." },
-  { year: "2024–2025", role: "Assistant General Secretary, NAPS." },
-  { year: "2024–2025", role: "Vice-Chairperson, FASSA Freshers' Help Desk Committee." },
-  { year: "2024–2025", role: "Member, NAPS Week." },
-  { year: "2024–2025", role: "Member, CBN LT Maintenance Committee." },
-  { year: "2025–2026", role: "General Secretary, Israel Oludotun Ransome-Kuti Hall." },
-  { year: "2025–2026", role: "Co-Chairperson, FASSA Freshers' Help Desk Committee." },
-  { year: "2026", role: "Co-Head, Personality Lecture, Kuti Hall Week." },
+const RECORD = [
+  {
+    period: "2022",
+    roles: ["Participant, Queen's Commonwealth Essay Competition (QCEC)"],
+  },
+  {
+    period: "2024",
+    roles: [
+      "Participant, Climate Science Olympiad",
+      "Logistics Member, Innotech 3.0",
+    ],
+  },
+  {
+    period: "2024–2025",
+    roles: [
+      "Assistant General Secretary, NAPS",
+      "Vice-Chairperson, FASSA Freshers' Help Desk Committee",
+      "Member, NAPS Week",
+      "Member, CBN LT Maintenance Committee",
+      "Member, Kuti @ 70 Publicity Team",
+    ],
+  },
+  {
+    period: "2024–present",
+    roles: [
+      "Member, FLT TDB Committee",
+      "Member, FASSA Freshers' Supporters Committee",
+    ],
+  },
+  {
+    period: "2025",
+    roles: [
+      "Member, Impact UI Core Publicity Team",
+      "Publicity Member, AI or Die",
+      "Member, FASSA Week Publicity Team",
+      "Member, FASSA PR Cornerstone",
+    ],
+  },
+  {
+    period: "2025–2026",
+    roles: [
+      "General Secretary, Israel Oludotun Ransome-Kuti Hall",
+      "Co-Chairperson, FASSA Freshers' Help Desk Committee",
+      "Member, UI Students' Union Help Desk Committee",
+      "Member, Ibiza PR Team",
+    ],
+  },
+  {
+    period: "2026",
+    roles: [
+      "Co-Head, Personality Lecture, Kuti Hall Week",
+      "Volunteer, NAPS UI Inaugural Lecture",
+    ],
+  },
 ];
 
-const UNDATED = [
-  "Member, Kuti @ 70 Publicity Team.",
-  "Member, University of Ibadan Students' Union Freshers' Help Desk Committee.",
-  "Member, Faculty Lecture Theatre (FLT) TDB Committee.",
-  "Member, FASSA Supporters' Committee.",
-];
-
-const THEMES = [
-  {
-    title: "Administration and Responsibility",
-    body: [
-      "My experience as Assistant General Secretary of NAPS and General Secretary of Ransome-Kuti Hall has exposed me to the importance of documentation, correspondence, coordination, and administrative responsibility.",
-      "These experiences have reinforced the value of organised systems, timely communication, and attention to detail in ensuring that responsibilities are handled effectively.",
-    ],
-  },
-  {
-    title: "Student Support and Inclusion",
-    body: [
-      "Through my involvement in the FASSA Freshers' Help Desk and other student-support committees, I have seen the importance of helping students navigate information, processes, and the early stages of faculty life.",
-      "These experiences have strengthened my belief that representation must be accessible, responsive, and attentive to the needs of students across different levels and departments.",
-    ],
-  },
-  {
-    title: "Collaboration and Community",
-    body: [
-      "From publicity teams and student activities to committee assignments and lecture planning, my experiences have taught me that meaningful outcomes depend on teamwork, preparation, and a willingness to take responsibility.",
-      "Leadership is rarely a solo effort. It requires bringing people together around a shared purpose.",
-    ],
-  },
-  {
-    title: "Science, Curiosity, and Wider Impact",
-    body: [
-      "My participation in the Climate Science Olympiad reflects my interest in science and the application of knowledge to wider societal challenges.",
-      "I am also interested in data analysis, marketing, and climate change. These interests reinforce my appreciation for evidence-based thinking, effective communication, and practical approaches to problem-solving.",
-    ],
-  },
+const LESSONS = [
+  ["Administration", "Documentation, correspondence, and coordination that keep commitments moving."],
+  ["Student support", "Helping students navigate faculty life, from first year onward."],
+  ["Collaboration", "Publicity teams, committees, and lecture planning built on teamwork."],
+  ["Science", "Evidence, curiosity, and applying knowledge to wider problems."],
 ];
 
 export default function Journey() {
@@ -56,56 +69,50 @@ export default function Journey() {
       <SectionHead
         number="02"
         label="A Journey of Service"
-        title="Service is a journey of learning, responsibility, collaboration, and growth."
-        intro="The following experiences have contributed to my development and understanding of leadership."
+        title="Service is a journey, not a title."
+        intro="The roles I have held so far — and what each one taught me about leadership."
       />
 
-      <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
-        <div className="reveal">
-          <p className="eyebrow mb-6">Experience &amp; leadership timeline</p>
-          <ol className="relative space-y-6 border-l border-line-strong pl-7">
-            {TIMELINE.map((item, index) => (
-              <li key={item.role} className="reveal relative" style={delay(index * 50)}>
-                <span
-                  className="absolute -left-[2.13rem] top-1.5 h-2.5 w-2.5 rounded-full border border-gold-deep bg-gold"
-                  aria-hidden="true"
-                />
-                <p className="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-gold-deep">
-                  {item.year}
-                </p>
-                <p className="mt-1 text-[0.98rem] leading-relaxed">{item.role}</p>
-              </li>
-            ))}
-          </ol>
-
-          <div className="mt-10 rounded-2xl border border-dashed border-line-strong p-5">
-            <p className="eyebrow mb-3 text-warn">Dates to confirm</p>
-            <ul className="space-y-2.5">
-              {UNDATED.map((role) => (
-                <li key={role} className="text-sm leading-relaxed text-muted">
-                  {role}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-4 text-xs leading-relaxed text-muted">
-              These roles are shown exactly as held while their dates and official titles
-              are being verified before publication.
+      <ol className="reveal divide-y divide-line border-y border-line">
+        {RECORD.map((group) => (
+          <li key={group.period} className="grid gap-2 py-4 sm:grid-cols-[10rem_1fr] sm:gap-6">
+            <p className="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-gold-deep sm:pt-0.5">
+              {group.period}
             </p>
-          </div>
-        </div>
-
-        <div className="grid gap-x-10 gap-y-10 sm:grid-cols-2">
-          {THEMES.map((theme, index) => (
-            <article key={theme.title} className="reveal pillar" style={delay(120 + index * 80)}>
-              <h3 className="font-display text-2xl">{theme.title}</h3>
-              {theme.body.map((paragraph) => (
-                <p key={paragraph.slice(0, 24)} className="mt-4 text-sm leading-relaxed text-muted">
-                  {paragraph}
-                </p>
+            <p className="text-[0.95rem] leading-relaxed">
+              {group.roles.map((role, roleIndex) => (
+                <span key={role}>
+                  {roleIndex > 0 && (
+                    <span className="mx-2 text-gold-deep" aria-hidden="true">
+                      ·
+                    </span>
+                  )}
+                  {role}
+                </span>
               ))}
-            </article>
+            </p>
+          </li>
+        ))}
+      </ol>
+
+      <div className="reveal mt-14" style={delay(120)}>
+        <p className="eyebrow mb-6">What the journey taught me</p>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {LESSONS.map(([title, body], index) => (
+            <div
+              key={title}
+              className="reveal border-t border-line-strong pt-4"
+              style={delay(160 + index * 60)}
+            >
+              <h3 className="font-display text-xl">{title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted">{body}</p>
+            </div>
           ))}
         </div>
+        <p className="mt-10 max-w-2xl border-l-2 border-gold pl-4 text-sm italic leading-relaxed text-fg/80">
+          Leadership is rarely a solo effort. Meaningful outcomes depend on teamwork,
+          preparation, and a willingness to take responsibility.
+        </p>
       </div>
     </Section>
   );

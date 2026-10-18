@@ -14,7 +14,7 @@ export default function Meet() {
       <SectionHead
         number="01"
         label="Meet Ajoje"
-        title="The Journey. The Philosophy. The Renaissance."
+        title="The journey. The philosophy. The Renaissance."
         intro={
           <em className="font-display text-2xl italic tracking-normal">
             A student. A servant. A believer in meaningful progress.
@@ -26,36 +26,27 @@ export default function Meet() {
         <div className="space-y-6 text-base leading-relaxed text-fg/90 sm:text-[1.06rem]">
           <p className="reveal">
             I am <strong className="font-semibold">Adedeji-Ajoje Daniel</strong>, popularly
-            known as <strong className="font-semibold">AJOJE</strong>, a 300-level Physics
-            student at the University of Ibadan and a proud member of the Faculty of Science.
+            known as <strong className="font-semibold">AJOJE</strong> — a 300-level Physics
+            student at the University of Ibadan and a proud member of the Faculty of
+            Science.
           </p>
           <p className="reveal" style={delay(80)}>
             My journey through departmental responsibilities, student committees, hall
-            administration, and student-support initiatives has shaped my understanding of
-            leadership. I have come to appreciate the importance of responsibility,
-            teamwork, effective communication, and the need to make students&rsquo;
+            administration, and student-support initiatives has shaped one conviction:
+            leadership is not a position to occupy. It is an opportunity to serve,
+            identify challenges, pursue practical solutions, and make students&rsquo;
             experiences count.
           </p>
-          <p className="reveal" style={delay(140)}>
-            These experiences have strengthened my conviction that leadership should be
-            more than a position to occupy. It should be an opportunity to serve, identify
-            challenges, pursue practical solutions, and create room for every student to
-            contribute.
-          </p>
-          <p className="reveal" style={delay(200)}>
+          <p className="reveal" style={delay(160)}>
             For me, the number one priority of every student leader is the{" "}
-            <strong className="font-semibold">welfare of the people they are serving</strong>.
-            Every other responsibility should be approached with this fundamental principle
-            in mind.
-          </p>
-          <p className="reveal" style={delay(260)}>
-            This conviction is at the heart of{" "}
-            <strong className="font-semibold">RENAISSANCE — Science of Service</strong>.
-          </p>
-          <p className="reveal" style={delay(320)}>
-            Renaissance represents my commitment to a FASSA where student welfare receives
-            deliberate attention, infrastructure is taken seriously, empowerment creates
-            opportunities, and every student has a meaningful voice.
+            <strong className="font-semibold">
+              welfare of the people they are serving
+            </strong>
+            . That conviction is the heart of{" "}
+            <strong className="font-semibold">Renaissance — Science of Service</strong>: a
+            commitment to a FASSA where welfare receives deliberate attention,
+            infrastructure is taken seriously, empowerment creates opportunities, and
+            every student has a meaningful voice.
           </p>
         </div>
 

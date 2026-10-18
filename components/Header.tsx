@@ -5,6 +5,7 @@ import ThemeToggle from "./ThemeToggle";
 
 const NAV = [
   { href: "#meet", label: "Meet Ajoje" },
+  { href: "#journey", label: "The Journey" },
   { href: "#vision", label: "The Vision" },
   { href: "#inside", label: "Inside FASSA" },
   { href: "#feedback", label: "Feedback Wall" },
@@ -38,13 +39,13 @@ export default function Header() {
     >
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-4 px-5 sm:h-[4.5rem] sm:px-8">
         <a href="#top" className="group flex shrink-0 items-baseline gap-2" aria-label="Ajoje the Renaissance — back to top">
-          <span className="font-display text-lg tracking-tight sm:text-[1.35rem]">Ajoje</span>
-          <span className="script text-xl leading-none text-gold-deep transition-colors duration-300 group-hover:text-gold sm:text-[1.7rem]">
+          <span className="font-display text-xl tracking-tight">Ajoje</span>
+          <span className="font-display text-lg italic text-gold-deep transition-colors duration-300 group-hover:text-gold">
             the Renaissance
           </span>
         </a>
 
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary">
           {NAV.map((item) => (
             <a
               key={item.href}
@@ -90,7 +91,7 @@ export default function Header() {
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="rounded-xl px-3 py-3 font-mono text-[0.72rem] uppercase tracking-[0.22em] text-muted transition-colors hover:bg-bg-2 hover:text-fg"
+              className="rounded px-3 py-3 font-mono text-[0.72rem] uppercase tracking-[0.22em] text-muted transition-colors hover:bg-bg-2 hover:text-fg"
             >
               {item.label}
             </a>

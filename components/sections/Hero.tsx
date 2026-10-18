@@ -10,31 +10,37 @@ const EQUATION = [
 
 export default function Hero() {
   return (
-    <section id="top" className="grain relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-[45%] bg-gradient-to-b from-bg-2 to-transparent" aria-hidden="true" />
-
-      <div className="relative mx-auto grid w-full max-w-6xl gap-14 px-5 pb-20 pt-10 sm:px-8 sm:pb-28 sm:pt-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-10">
+    <section className="relative overflow-hidden">
+      <div className="relative mx-auto grid w-full max-w-6xl gap-14 px-5 pb-20 pt-12 sm:px-8 sm:pb-24 sm:pt-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-10">
         <div>
-          <p className="hero-rise eyebrow flex flex-wrap items-center gap-3" style={{ animationDelay: "0.05s" }}>
-            <span className="chip border-gold-deep text-gold-deep">Renaissance Movement · 001</span>
-            <span>Faculty of Science Students&rsquo; Association · UI</span>
+          <p
+            className="hero-rise font-mono text-[0.7rem] uppercase tracking-[0.28em] text-muted"
+            style={{ animationDelay: "0.05s" }}
+          >
+            Faculty of Science Students&rsquo; Association · UI
           </p>
 
-          <h1 className="hero-rise mt-8" style={{ animationDelay: "0.15s" }}>
+          <h1 className="hero-rise mt-7" style={{ animationDelay: "0.15s" }}>
             <span className="font-display block text-[3.4rem] leading-[0.95] tracking-tight sm:text-7xl lg:text-[5.2rem]">
               Renaissance
             </span>
-            <span className="script mt-1 block text-5xl text-gold-deep sm:text-6xl lg:text-[4.2rem]">
+            <span className="font-display mt-2 block text-4xl italic text-gold-deep sm:text-5xl lg:text-[3.4rem]">
               Science of Service
             </span>
           </h1>
 
-          <p className="hero-rise mt-7 max-w-xl text-lg leading-relaxed text-muted sm:text-xl" style={{ animationDelay: "0.3s" }}>
+          <p
+            className="hero-rise mt-7 max-w-xl text-lg leading-relaxed text-muted sm:text-xl"
+            style={{ animationDelay: "0.3s" }}
+          >
             A movement for inclusive representation, accountable leadership, and
             meaningful progress in FASSA.
           </p>
 
-          <div className="hero-rise mt-9 flex flex-wrap items-center gap-4" style={{ animationDelay: "0.45s" }}>
+          <div
+            className="hero-rise mt-9 flex flex-wrap items-center gap-4"
+            style={{ animationDelay: "0.45s" }}
+          >
             <a href="#vision" className="btn btn-gold">
               Explore the Renaissance
             </a>
@@ -54,7 +60,10 @@ export default function Hero() {
             </p>
             <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
               {EQUATION.map((item) => (
-                <li key={item.symbol} className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-muted">
+                <li
+                  key={item.symbol}
+                  className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-muted"
+                >
                   <span className="text-gold-deep">{item.symbol}</span> — {item.label}
                 </li>
               ))}
@@ -74,14 +83,20 @@ export default function Hero() {
               sizes="(min-width: 1024px) 44vw, 90vw"
               className="h-auto w-full object-cover"
             />
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-brand/55 to-transparent" aria-hidden="true" />
+            <div
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-brand/55 to-transparent"
+              aria-hidden="true"
+            />
           </div>
-          <div className="hero-rise mt-5 flex items-center justify-between gap-4" style={{ animationDelay: "0.75s" }}>
+          <div
+            className="hero-rise mt-5 flex items-center justify-between gap-4"
+            style={{ animationDelay: "0.75s" }}
+          >
             <p className="font-mono text-[0.7rem] uppercase tracking-[0.24em] text-muted">
               Adedeji-Ajoje Daniel
               <span className="mt-1 block text-gold-deep">AJOJE</span>
             </p>
-            <p className="script text-2xl text-muted">the Renaissance</p>
+            <p className="font-display text-xl italic text-muted">the Renaissance</p>
           </div>
         </div>
       </div>

@@ -1,11 +1,10 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import RevealWatcher from "@/components/RevealWatcher";
+import OpeningQuote from "@/components/OpeningQuote";
 import Hero from "@/components/sections/Hero";
 import Meet from "@/components/sections/Meet";
 import Journey from "@/components/sections/Journey";
-import Leadership from "@/components/sections/Leadership";
-import WhyRenaissance from "@/components/sections/WhyRenaissance";
 import Vision from "@/components/sections/Vision";
 import InsideFassa from "@/components/sections/InsideFassa";
 import FeedbackWall from "@/components/sections/FeedbackWall";
@@ -19,13 +18,12 @@ export default async function Home() {
   return (
     <>
       <RevealWatcher />
+      <OpeningQuote />
       <Header />
       <main id="main">
         <Hero />
         <Meet />
         <Journey />
-        <Leadership />
-        <WhyRenaissance />
         <Vision />
         <InsideFassa />
         <FeedbackWall />

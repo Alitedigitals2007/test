@@ -102,10 +102,10 @@ function LoginScreen({
   }
 
   return (
-    <main className="grain relative flex min-h-dvh items-center justify-center bg-bg px-5">
+    <main className="relative flex min-h-dvh items-center justify-center bg-bg px-5">
       <form onSubmit={submit} className="card w-full max-w-md p-8">
         <p className="font-display text-2xl">
-          AJOJE <span className="script text-3xl text-gold-deep">the Renaissance</span>
+          AJOJE <span className="text-lg italic text-gold-deep">the Renaissance</span>
         </p>
         <h1 className="eyebrow mt-6">Admin access</h1>
         <p className="mt-3 text-sm leading-relaxed text-muted">
@@ -114,7 +114,7 @@ function LoginScreen({
         </p>
 
         {!configured && (
-          <p className="mt-5 rounded-xl border border-warn/40 bg-warn/10 px-4 py-3 text-sm text-warn">
+          <p className="mt-5 rounded border border-warn/40 bg-warn/10 px-4 py-3 text-sm text-warn">
             Admin access is not configured on this deployment yet. Set ADMIN_PASSWORD and
             ADMIN_SESSION_SECRET in the environment first.
           </p>
@@ -164,7 +164,7 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
         <div className="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-between gap-4 px-5 py-4 sm:px-8">
           <div className="flex items-baseline gap-2">
             <span className="font-display text-xl">Admin</span>
-            <span className="script text-2xl text-gold-deep">the Renaissance</span>
+            <span className="font-display text-lg italic text-gold-deep">the Renaissance</span>
           </div>
           <div className="flex items-center gap-3">
             <Link
@@ -312,7 +312,7 @@ function FeedbackInbox({ onAuthError }: { onAuthError: () => void }) {
         </span>
       </div>
 
-      {error && <p className="mt-6 rounded-xl border border-danger/40 bg-danger/5 px-4 py-3 text-sm text-danger">{error}</p>}
+      {error && <p className="mt-6 rounded border border-danger/40 bg-danger/5 px-4 py-3 text-sm text-danger">{error}</p>}
 
       <ul className="mt-6 space-y-4">
         {data?.items.map((item) => (
