@@ -263,12 +263,6 @@ body {
   will-change: opacity, transform;
 }
 
-.reveal.is-in {
-  opacity: 1;
-  transform: none;
-  filter: none;
-}
-
 /* depth layers — stacked planes settle from different distances */
 .reveal[data-layer="deep"] {
   transform: translateY(52px) scale(0.958);
@@ -293,6 +287,12 @@ body {
 .reveal[data-layer="right"] {
   transform: translateX(34px) scale(0.988);
   filter: blur(5px);
+}
+
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+  filter: none;
 }
 
 /* rules draw themselves once their layer lands */

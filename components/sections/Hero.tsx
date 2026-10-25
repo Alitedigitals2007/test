@@ -49,7 +49,8 @@ export default function Hero() {
             <p className="mt-3 font-display text-2xl leading-snug tracking-tight sm:text-3xl">
               Renaissance <span className="text-gold-deep">=</span> Welfare{" "}
               <span className="text-gold-deep">+</span> Infrastructure{" "}
-              <span className="text-gold-deep">+</span> Empowerment
+              <span className="text-gold-deep">+</span> Empowerment{" "}
+              <span className="text-gold-deep">+</span> Inclusivity
             </p>
           </div>
         </div>
