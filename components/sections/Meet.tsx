@@ -63,6 +63,16 @@ export default function Meet() {
               />
             </div>
           </div>
+
+          <div className="rounded-[0.6rem] border border-gold-deep/50 bg-brand p-6 text-brand-fg shadow-[var(--shadow)]">
+            <p className="font-mono text-[0.7rem] uppercase tracking-[0.3em] text-gold">
+              Vote
+            </p>
+            <p className="font-display mt-3 text-2xl leading-tight">
+              Vote Ajoje <span className="italic text-gold">the Renaissance</span> for
+              FASSA President.
+            </p>
+          </div>
           <div className="card p-6">
             <p className="eyebrow mb-4">Quick facts</p>
             <dl className="space-y-3">
