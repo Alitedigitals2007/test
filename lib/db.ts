@@ -44,6 +44,17 @@ export function ensureSchema(): Promise<void> {
           value TEXT NOT NULL,
           updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
         );
+        CREATE TABLE IF NOT EXISTS events (
+          id BIGSERIAL PRIMARY KEY,
+          type TEXT NOT NULL,
+          path TEXT NOT NULL,
+          target TEXT,
+          visitor_id TEXT NOT NULL,
+          referrer TEXT,
+          created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+        );
+        CREATE INDEX IF NOT EXISTS events_created_at_idx ON events (created_at DESC);
+        CREATE INDEX IF NOT EXISTS events_type_created_at_idx ON events (type, created_at DESC);
       `);
     })().catch((err) => {
       global.__renaissanceSchema = undefined;

@@ -20,6 +20,15 @@ type FeedbackResponse = {
   counts: { total: number; reviewed: number; byCategory: Record<string, number> };
 };
 
+type AnalyticsSummary = {
+  totals: { views: number; clicks: number; visitors: number };
+  last7Days: { views: number; visitors: number };
+  viewsByDay: { date: string; views: number }[];
+  topPages: { path: string; views: number }[];
+  topClicks: { target: string; clicks: number }[];
+  referrers: { referrer: string; visits: number }[];
+};
+
 const dateFormat = new Intl.DateTimeFormat("en-GB", {
   day: "numeric",
   month: "short",
@@ -148,7 +157,7 @@ function LoginScreen({
 }
 
 function Dashboard({ onLogout }: { onLogout: () => void }) {
-  const [tab, setTab] = useState<"feedback" | "links">("feedback");
+  const [tab, setTab] = useState<"feedback" | "analytics" | "links">("feedback");
 
   async function logout() {
     try {
@@ -179,7 +188,7 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
           </div>
         </div>
         <div className="mx-auto flex w-full max-w-5xl gap-1 px-5 sm:px-8">
-          {(["feedback", "links"] as const).map((item) => (
+          {(["feedback", "analytics", "links"] as const).map((item) => (
             <button
               key={item}
               type="button"
@@ -190,14 +199,24 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
                   : "border-transparent text-muted hover:text-fg"
               }`}
             >
-              {item === "feedback" ? "Feedback inbox" : "Links & contact"}
+              {item === "feedback"
+                ? "Feedback inbox"
+                : item === "analytics"
+                  ? "Analytics"
+                  : "Links & contact"}
             </button>
           ))}
         </div>
       </header>
 
       <div className="mx-auto w-full max-w-5xl px-5 py-10 sm:px-8">
-        {tab === "feedback" ? <FeedbackInbox onAuthError={onLogout} /> : <LinksEditor onAuthError={onLogout} />}
+        {tab === "feedback" ? (
+          <FeedbackInbox onAuthError={onLogout} />
+        ) : tab === "analytics" ? (
+          <AnalyticsPanel onAuthError={onLogout} />
+        ) : (
+          <LinksEditor onAuthError={onLogout} />
+        )}
       </div>
     </main>
   );
@@ -394,6 +413,173 @@ function StatCard({ label, value }: { label: string; value: number | string }) {
     <div className="card p-5">
       <p className="eyebrow">{label}</p>
       <p className="font-display mt-2 text-4xl">{value}</p>
+    </div>
+  );
+}
+
+function AnalyticsPanel({ onAuthError }: { onAuthError: () => void }) {
+  const [data, setData] = useState<AnalyticsSummary | null>(null);
+  const [error, setError] = useState("");
+  const [refreshKey, setRefreshKey] = useState(0);
+
+  useEffect(() => {
+    let alive = true;
+    api<AnalyticsSummary>("/api/admin/analytics")
+      .then((result) => {
+        if (!alive) return;
+        setData(result);
+        setError("");
+      })
+      .catch((err) => {
+        if (!alive) return;
+        if ((err as { status?: number }).status === 401) {
+          onAuthError();
+          return;
+        }
+        setError(err instanceof Error ? err.message : "Could not load analytics");
+      });
+    return () => {
+      alive = false;
+    };
+  }, [refreshKey, onAuthError]);
+
+  if (error) {
+    return (
+      <p className="rounded border border-danger/40 bg-danger/5 px-4 py-3 text-sm text-danger">
+        {error}
+      </p>
+    );
+  }
+
+  if (!data) {
+    return <p className="eyebrow animate-pulse">Loading analytics…</p>;
+  }
+
+  return (
+    <div>
+      <div className="flex flex-wrap items-center justify-between gap-4">
+        <p className="max-w-xl text-sm leading-relaxed text-muted">
+          Cookie-free, anonymous tracking of page views and clicks. Your own
+          visits to this admin area are never counted. Visitor counts are
+          approximate (based on a random browser id).
+        </p>
+        <button
+          type="button"
+          className="btn btn-outline !px-4 !py-2"
+          onClick={() => setRefreshKey((key) => key + 1)}
+        >
+          Refresh
+        </button>
+      </div>
+
+      <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <StatCard label="Page views" value={data.totals.views} />
+        <StatCard label="Unique visitors" value={data.totals.visitors} />
+        <StatCard label="Clicks on links & buttons" value={data.totals.clicks} />
+        <StatCard label="Views — last 7 days" value={data.last7Days.views} />
+      </div>
+
+      <div className="mt-4 grid gap-4 lg:grid-cols-2">
+        <ViewsChart days={data.viewsByDay} />
+        <TopList
+          title="Top referrers"
+          rows={data.referrers.map((row) => ({ label: row.referrer, value: row.visits }))}
+          emptyLabel="No visits from other sites yet."
+        />
+      </div>
+
+      <div className="mt-4 grid gap-4 lg:grid-cols-2">
+        <TopList
+          title="Most viewed pages"
+          rows={data.topPages.map((row) => ({ label: row.path, value: row.views }))}
+          emptyLabel="No page views recorded yet."
+        />
+        <TopList
+          title="Most clicked"
+          rows={data.topClicks.map((row) => ({ label: row.target, value: row.clicks }))}
+          emptyLabel="No clicks recorded yet."
+        />
+      </div>
+    </div>
+  );
+}
+
+function ViewsChart({ days }: { days: { date: string; views: number }[] }) {
+  const max = Math.max(1, ...days.map((day) => day.views));
+  const dayFormat = new Intl.DateTimeFormat("en-GB", {
+    day: "numeric",
+    month: "short",
+  });
+
+  return (
+    <div className="card p-6">
+      <p className="eyebrow">Page views — last 14 days</p>
+      <div className="mt-6 flex h-40 items-end gap-1.5">
+        {days.map((day) => (
+          <div
+            key={day.date}
+            className="flex h-full flex-1 flex-col justify-end"
+            title={`${dayFormat.format(new Date(day.date))}: ${day.views} view${
+              day.views === 1 ? "" : "s"
+            }`}
+          >
+            <div
+              className={`w-full rounded-t-sm transition-colors ${
+                day.views > 0 ? "bg-gold-deep/80 hover:bg-gold-deep" : "bg-line"
+              }`}
+              style={{
+                height: `${Math.max(day.views > 0 ? 6 : 3, (day.views / max) * 100)}%`,
+              }}
+            />
+          </div>
+        ))}
+      </div>
+      {days.length > 0 && (
+        <p className="mt-3 font-mono text-[0.66rem] uppercase tracking-[0.16em] text-muted">
+          {dayFormat.format(new Date(days[0].date))} –{" "}
+          {dayFormat.format(new Date(days[days.length - 1].date))}
+        </p>
+      )}
+    </div>
+  );
+}
+
+function TopList({
+  title,
+  rows,
+  emptyLabel,
+}: {
+  title: string;
+  rows: { label: string; value: number }[];
+  emptyLabel: string;
+}) {
+  const max = Math.max(1, ...rows.map((row) => row.value));
+
+  return (
+    <div className="card p-6">
+      <p className="eyebrow">{title}</p>
+      {rows.length === 0 ? (
+        <p className="mt-4 text-sm text-muted">{emptyLabel}</p>
+      ) : (
+        <ul className="mt-4 space-y-3">
+          {rows.map((row) => (
+            <li key={row.label}>
+              <div className="flex items-baseline justify-between gap-4">
+                <span className="truncate text-sm">{row.label}</span>
+                <span className="shrink-0 font-mono text-[0.7rem] text-muted">
+                  {row.value}
+                </span>
+              </div>
+              <div className="mt-1.5 h-1 rounded-full bg-line">
+                <div
+                  className="h-full rounded-full bg-gold-deep/80"
+                  style={{ width: `${(row.value / max) * 100}%` }}
+                />
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

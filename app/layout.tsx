@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Hanken_Grotesk, IBM_Plex_Mono } from "next/font/google";
+import AnalyticsTracker from "@/components/AnalyticsTracker";
 import "./globals.css";
 
 const hanken = Hanken_Grotesk({
@@ -70,6 +71,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to content
         </a>
+        <AnalyticsTracker />
         {children}
       </body>
     </html>
