@@ -55,21 +55,25 @@ export default function Hero() {
         </div>
 
         <div className="hero-arch relative mx-auto w-full max-w-[24rem] lg:max-w-none">
-          <OrbitCanvas className="hero-orbit absolute left-1/2 top-1/2 h-[125%] w-[150%] -translate-x-1/2 -translate-y-1/2" />
-          <div className="arch relative border border-line-strong bg-bg-2 shadow-[var(--shadow)]">
-            <Image
-              src="/images/ajoje-hero.webp"
-              alt="Portrait of Adedeji-Ajoje Daniel (Ajoje)"
-              width={960}
-              height={1200}
-              priority
-              sizes="(min-width: 1024px) 44vw, 90vw"
-              className="h-auto w-full object-cover"
-            />
-            <div
-              className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-brand/55 to-transparent"
-              aria-hidden="true"
-            />
+          <div data-parallax="0.16" className="absolute inset-0" aria-hidden="true">
+            <OrbitCanvas className="hero-orbit absolute left-1/2 top-1/2 h-[125%] w-[150%] -translate-x-1/2 -translate-y-1/2" />
+          </div>
+          <div data-parallax="0.07">
+            <div className="arch relative border border-line-strong bg-bg-2 shadow-[var(--shadow)]">
+              <Image
+                src="/images/ajoje-hero.webp"
+                alt="Portrait of Adedeji-Ajoje Daniel (Ajoje)"
+                width={960}
+                height={1200}
+                priority
+                sizes="(min-width: 1024px) 44vw, 90vw"
+                className="h-auto w-full object-cover"
+              />
+              <div
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-brand/55 to-transparent"
+                aria-hidden="true"
+              />
+            </div>
           </div>
           <div
             className="hero-rise mt-5 flex items-center justify-between gap-4"

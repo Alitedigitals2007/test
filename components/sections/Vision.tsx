@@ -1,4 +1,4 @@
-import { delay, Section, SectionHead } from "@/components/Section";
+import { Section, SectionHead } from "@/components/Section";
 
 const PILLARS = [
   {
@@ -81,9 +81,9 @@ export default function Vision() {
         }
       />
 
-      <div className="grid gap-12 lg:grid-cols-3 lg:gap-10">
-        {PILLARS.map((pillar, index) => (
-          <article key={pillar.name} className="reveal" style={delay(index * 120)}>
+      <div className="grid gap-12 lg:grid-cols-3 lg:gap-10" data-stagger="130">
+        {PILLARS.map((pillar) => (
+          <article key={pillar.name} className="reveal" data-layer="mid">
             <div className="pillar">
               <p className="eyebrow text-gold-deep">{pillar.index}</p>
               <h3 className="font-display mt-3 text-4xl">{pillar.name}</h3>
@@ -109,9 +109,9 @@ export default function Vision() {
 
       <div className="mt-20 border-t border-line pt-12">
         <p className="reveal eyebrow mb-8">The principles that connect the pillars</p>
-        <div className="grid gap-8 sm:grid-cols-3">
-          {PRINCIPLES.map((principle, index) => (
-            <article key={principle.title} className="reveal pillar" style={delay(index * 100)}>
+        <div className="grid gap-8 sm:grid-cols-3" data-stagger="110">
+          {PRINCIPLES.map((principle) => (
+            <article key={principle.title} className="reveal pillar" data-layer="near">
               <h3 className="font-display text-2xl">{principle.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted">{principle.body}</p>
             </article>

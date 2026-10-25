@@ -37,6 +37,7 @@ export function ensureSchema(): Promise<void> {
           reviewed BOOLEAN NOT NULL DEFAULT FALSE,
           created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
         );
+        ALTER TABLE feedback ADD COLUMN IF NOT EXISTS category TEXT;
         CREATE INDEX IF NOT EXISTS feedback_created_at_idx ON feedback (created_at DESC);
         CREATE TABLE IF NOT EXISTS settings (
           key TEXT PRIMARY KEY,

@@ -3,9 +3,14 @@ import { delay, Section } from "@/components/Section";
 export default function FinalMessage() {
   return (
     <Section id="final" tone="brand" className="overflow-hidden">
+      <div
+        aria-hidden="true"
+        data-parallax="0.12"
+        className="pointer-events-none absolute -top-40 right-[-14rem] h-[32rem] w-[32rem] rounded-full bg-gold/10 blur-3xl"
+      />
       <div className="mx-auto max-w-3xl">
-        <p className="reveal eyebrow text-brand-fg/70">A final message from Ajoje</p>
-        <h2 className="reveal font-display mt-5 text-4xl sm:text-5xl">
+        <p className="reveal eyebrow text-brand-fg/70" data-layer="near">A final message from Ajoje</p>
+        <h2 className="reveal font-display mt-5 text-4xl sm:text-5xl" data-layer="mid" style={delay(120)}>
           The future of FASSA is a shared responsibility.
         </h2>
 
@@ -22,7 +27,7 @@ export default function FinalMessage() {
           </p>
         </div>
 
-        <div className="reveal mt-14" style={delay(160)}>
+        <div className="reveal mt-14" style={delay(160)} data-layer="deep">
           <p className="text-sm text-brand-fg/70">With purpose and a commitment to service,</p>
           <p className="font-display mt-4 text-4xl leading-tight sm:text-5xl">
             AJOJE THE RENAISSANCE <span aria-hidden="true">⏳❤️</span>

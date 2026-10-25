@@ -50,16 +50,18 @@ export default function Meet() {
           </p>
         </div>
 
-        <aside className="reveal space-y-8" style={delay(160)}>
-          <div className="arch border border-line-strong bg-bg shadow-[var(--shadow)]">
-            <Image
-              src="/images/ajoje-portrait.webp"
-              alt="Portrait of Adedeji-Ajoje Daniel (Ajoje)"
-              width={960}
-              height={1200}
-              sizes="(min-width: 1024px) 38vw, 90vw"
-              className="h-auto w-full object-cover"
-            />
+        <aside className="reveal space-y-8" style={delay(160)} data-layer="mid">
+          <div data-parallax="0.06">
+            <div className="arch border border-line-strong bg-bg shadow-[var(--shadow)]">
+              <Image
+                src="/images/ajoje-portrait.webp"
+                alt="Portrait of Adedeji-Ajoje Daniel (Ajoje)"
+                width={960}
+                height={1200}
+                sizes="(min-width: 1024px) 38vw, 90vw"
+                className="h-auto w-full object-cover"
+              />
+            </div>
           </div>
           <div className="card p-6">
             <p className="eyebrow mb-4">Quick facts</p>

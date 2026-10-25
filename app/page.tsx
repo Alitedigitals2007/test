@@ -6,7 +6,6 @@ import Hero from "@/components/sections/Hero";
 import Meet from "@/components/sections/Meet";
 import Journey from "@/components/sections/Journey";
 import Vision from "@/components/sections/Vision";
-import InsideFassa from "@/components/sections/InsideFassa";
 import FeedbackWall from "@/components/sections/FeedbackWall";
 import Join from "@/components/sections/Join";
 import FinalMessage from "@/components/sections/FinalMessage";
@@ -25,7 +24,6 @@ export default async function Home() {
         <Meet />
         <Journey />
         <Vision />
-        <InsideFassa />
         <FeedbackWall />
         <Join settings={settings} />
         <FinalMessage />

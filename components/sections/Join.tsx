@@ -21,7 +21,7 @@ export default function Join({ settings }: { settings: SiteSettings }) {
   return (
     <Section id="join">
       <SectionHead
-        number="06"
+        number="05"
         label="Join the Renaissance Movement"
         title="A movement is only as strong as the people who shape it."
         intro="You do not need a position to contribute. You do not need all the answers to be part of the conversation."
@@ -44,7 +44,7 @@ export default function Join({ settings }: { settings: SiteSettings }) {
         </div>
 
         <div className="grid gap-5 self-start">
-          <article className="reveal card p-6 sm:p-7" style={delay(80)}>
+          <article className="reveal card p-6 sm:p-7" style={delay(80)} data-layer="mid">
             <p className="eyebrow text-gold-deep">Connect with Renaissance</p>
             <p className="mt-3 text-sm leading-relaxed text-muted">
               Join the conversation where ideas, updates, and open discussions are shared.
@@ -77,7 +77,7 @@ export default function Join({ settings }: { settings: SiteSettings }) {
           </article>
 
           <div className="grid gap-5 sm:grid-cols-2">
-            <article className="reveal card flex flex-col p-6" style={delay(160)}>
+            <article className="reveal card flex flex-col p-6" style={delay(160)} data-layer="mid">
               <p className="eyebrow text-gold-deep">Share an idea</p>
               <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
                 Bring a concern, a suggestion, or a solution. Every submission is read
@@ -88,7 +88,7 @@ export default function Join({ settings }: { settings: SiteSettings }) {
               </a>
             </article>
 
-            <article className="reveal card flex flex-col p-6" style={delay(220)}>
+            <article className="reveal card flex flex-col p-6" style={delay(220)} data-layer="mid">
               <p className="eyebrow text-gold-deep">Explore the manifesto</p>
               <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
                 The full Renaissance manuscript — the journey, the vision, and the

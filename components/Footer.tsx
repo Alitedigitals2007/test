@@ -5,7 +5,6 @@ export default function Footer({ settings }: { settings: SiteSettings }) {
     { href: "#meet", label: "Meet AJOJE" },
     { href: "#journey", label: "A Journey of Service" },
     { href: "#vision", label: "The Renaissance Vision" },
-    { href: "#inside", label: "Inside FASSA" },
     { href: "#feedback", label: "The Feedback Wall" },
     { href: "#join", label: "Join the Movement" },
   ];

@@ -7,7 +7,6 @@ const NAV = [
   { href: "#meet", label: "Meet Ajoje" },
   { href: "#journey", label: "The Journey" },
   { href: "#vision", label: "The Vision" },
-  { href: "#inside", label: "Inside FASSA" },
   { href: "#feedback", label: "Feedback Wall" },
 ];
 
