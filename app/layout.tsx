@@ -1,17 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Bodoni_Moda, Hanken_Grotesk, IBM_Plex_Mono } from "next/font/google";
+import { Hanken_Grotesk, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
-
-const bodoni = Bodoni_Moda({
-  variable: "--font-bodoni",
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-  display: "swap",
-});
 
 const hanken = Hanken_Grotesk({
   variable: "--font-hanken",
   subsets: ["latin"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -64,7 +58,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${bodoni.variable} ${hanken.variable} ${plex.variable}`}
+      className={`${hanken.variable} ${plex.variable}`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInit }} />
